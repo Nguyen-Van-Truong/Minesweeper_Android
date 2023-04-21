@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SeeAchievement extends AppCompatActivity {
+public class SaveAchievementActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_see_achievement);
+        setContentView(R.layout.activity_save_achievement);
+        getSupportActionBar().hide();
     }
 }

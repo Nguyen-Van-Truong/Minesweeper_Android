@@ -12,16 +12,16 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31" >
         <activity
-            android:name=".Board"
+            android:name=".BoardActivity"
             android:exported="false" />
         <activity
-            android:name=".SeeAchievement"
+            android:name=".SeeAchievementActivity"
             android:exported="false" />
         <activity
-            android:name=".SaveAchievement"
+            android:name=".SaveAchievementActivity"
             android:exported="false" />
         <activity
-            android:name=".ChooseDifficulty"
+            android:name=".ChooseDifficultyActivity"
             android:exported="false" />
 
         <meta-data

@@ -7,17 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class ChooseDifficulty extends AppCompatActivity {
+public class ChooseDifficultyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_difficulty);
+        getSupportActionBar().hide();
+
         Button easyButton = findViewById(R.id.easy_button);
         easyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseDifficulty.this, Board.class);
+                Intent intent = new Intent(ChooseDifficultyActivity.this, BoardActivity.class);
                 startActivity(intent);
             }
         });
@@ -25,7 +27,7 @@ public class ChooseDifficulty extends AppCompatActivity {
         mediumButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseDifficulty.this, Board.class);
+                Intent intent = new Intent(ChooseDifficultyActivity.this, BoardActivity.class);
                 startActivity(intent);
             }
         });
@@ -33,7 +35,7 @@ public class ChooseDifficulty extends AppCompatActivity {
         hardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseDifficulty.this, Board.class);
+                Intent intent = new Intent(ChooseDifficultyActivity.this, BoardActivity.class);
                 startActivity(intent);
             }
         });
