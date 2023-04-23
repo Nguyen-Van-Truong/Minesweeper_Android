@@ -1,58 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8CB87">
+    android:background="#F8CB87"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/logo_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginBottom="60dp"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@id/start_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/title"
+        android:layout_width="354dp"
+        android:layout_height="122dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/title"
+        android:gravity="center"
+        android:onClick="titleClick" />
 
     <Button
-        android:id="@+id/start_button"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:text="Bắt đầu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo_image" />
-
-    <Button
-        android:id="@+id/achievements_button"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Thành tích"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/start_button" />
-
-    <Button
-        android:id="@+id/exit_button"
-        android:layout_width="130dp"
+        android:id="@+id/playButton"
+        style="@style/CommonButton"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:text="Thoát"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/achievements_button" />
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="clicked"
+        android:text="Bắt đầu"
+        android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/highScoreButton"
+        style="@style/CommonButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:onClick="clicked"
+        android:text="@string/title_high_scores"
+        android:textSize="16sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/settingsButton"
+        style="@style/CommonButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:onClick="clicked"
+        android:text="@string/title_settings"
+        android:textSize="16sp" />
+    <Button
+        android:id="@+id/exitsButton"
+        style="@style/CommonButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:onClick="clicked"
+        android:text="@string/title_exit"
+        android:textSize="16sp" />
+</LinearLayout>

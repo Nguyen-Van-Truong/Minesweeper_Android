@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/board"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="125dp"
+
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="125dp"
+        android:background="@drawable/title"
+        android:gravity="center"
+        android:onClick="titleClick" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp">
+
+        <Button
+            android:id="@+id/playButton"
+            style="@style/CommonButton"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:onClick="clicked"
+            android:text="@string/title_play"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/highScoreButton"
+            style="@style/CommonButton"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:onClick="clicked"
+            android:text="@string/title_high_scores"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/settingsButton"
+            style="@style/CommonButton"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:onClick="clicked"
+            android:text="@string/title_settings"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".model.Game">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:gravity="center"
+            android:padding="5dp"
+            android:stretchColumns="*">
+
+            <ImageView
+                android:id="@+id/flag_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/flag_icon" />
+
+            <TextView
+                android:id="@+id/mineCounter"
+                style="@style/CommonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="15dp" />
+
+            <TextView
+                android:id="@+id/title"
+                android:text="Minesweeper"
+                android:textColor="#52AD28"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/timer"
+                style="@style/CommonText"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/timer"
+                android:textColor="#FF0000"
+                android:textSize="20dp" />
+
+        </TableRow>
+
+        <ImageButton
+            android:id="@+id/restart"
+            android:layout_width="334dp"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="150dp"
+            android:background="@drawable/game_state_normal"
+            android:gravity="center"
+            android:onClick="newGame" />
+
+        <TableRow>
+
+        </TableRow>
+    </TableLayout>
+
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableLayout
+                android:id="@+id/gameBoard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F8CB87"
+                android:padding="5dp"
+                android:stretchColumns="*"></TableLayout>
+
+        </ScrollView>
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/infoBox"
+        style="@style/CommonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:text=""
+        android:textSize="15dp" />
+
+</LinearLayout>
