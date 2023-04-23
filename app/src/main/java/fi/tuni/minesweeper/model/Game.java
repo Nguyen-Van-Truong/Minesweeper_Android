@@ -25,12 +25,7 @@ import java.util.Random;
 
 import fi.tuni.minesweeper.R;
 
-/**
- * Game -activity contains the main functionality for Minesweeper
- * @author      Ville Kautto <ville.kautto@hotmail.fi>
- * @version     2020.04.22
- * @since       2020.03.24
- */
+
 public class Game extends AppCompatActivity {
     static Activity messenger;
     Vibrator v;

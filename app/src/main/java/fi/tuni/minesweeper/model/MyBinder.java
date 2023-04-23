@@ -2,12 +2,7 @@ package fi.tuni.minesweeper.model;
 
 import android.os.Binder;
 
-/**
- * Binds and retuns SoundPlayers to requesting ServiceConnectors
- * @since 2020.04.22
- * @version 2020.04.22
- * @author Ville Kautto
- */
+
 public class MyBinder extends Binder {
     //the binded soundplayer object
     private SoundPlayer soundPlayer;

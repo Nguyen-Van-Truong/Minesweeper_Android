@@ -19,12 +19,7 @@ import fi.tuni.minesweeper.model.MyBinder;
 import fi.tuni.minesweeper.model.ScoreDatabase;
 import fi.tuni.minesweeper.model.SoundPlayer;
 
-/**
- * Settings activity contains all customizable settings for the application
- * @author      Ville Kautto <ville.kautto@hotmail.fi>
- * @version     2020.04.22
- * @since       2020.03.24
- */
+
 public class SettingsActivity extends AppCompatActivity {
 
     Activity messenger;

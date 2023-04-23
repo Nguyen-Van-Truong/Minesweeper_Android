@@ -19,12 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import fi.tuni.minesweeper.model.MyBinder;
 import fi.tuni.minesweeper.model.SoundPlayer;
 
-/**
- * MainActivity launches other application activities
- * @author      Ville Kautto <ville.kautto@hotmail.fi>
- * @version     2020.04.22
- * @since       2020.03.24
- */
+
 public class MainActivity extends AppCompatActivity {
 
     Activity messenger;
@@ -80,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Clicked handles button click events from main menu. Also opens a new activity upon clicking
+     * Lê Tuấn Cảnh
+     * Lựa chọn button sử dụng switch case nếu lựa chọn button xem thành tích sau đó đưa đến màn hình HighScoreActivity
+     *
      * @param v Clicked View
      */
     public void clicked(View v) {
@@ -110,15 +107,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Adds functionality to clicking the title, probably used later
+     *
      * @param v Clicked view
      */
     public void titleClick(View v) {
-        toaster("The game was made by Ville Kautto");
+        toaster("welcome!");
     }
 
     /**
-     * Just a method for easier toaster
+     *
      * @param text
      */
     public void toaster(String text) {
@@ -126,8 +123,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Sends a soundfile to soundService if the soundService is present
-     * @param audioId name of the audiofile
+     *
+     *
      */
     private void playSound(int audioId) {
         if(soundBound) {

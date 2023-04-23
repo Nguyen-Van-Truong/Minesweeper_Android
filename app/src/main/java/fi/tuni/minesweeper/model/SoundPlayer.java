@@ -13,12 +13,7 @@ import android.os.IBinder;
 import fi.tuni.minesweeper.R;
 import fi.tuni.minesweeper.model.MyBinder;
 
-/**
- * SoundPlayer object prepares an audio player and plays sound files on command
- * @author Ville Kautto <ville.kautto@hotmail.fi>
- * @version 2020.04.22
- * @since 2020.04.22
- */
+
 public class SoundPlayer extends Service {
 
     @Override

@@ -26,12 +26,7 @@ import fi.tuni.minesweeper.model.Score;
 import fi.tuni.minesweeper.model.ScoreDatabase;
 import fi.tuni.minesweeper.model.SoundPlayer;
 
-/**
- * HighScore activity keeps track of user's completed games
- * @author      Ville Kautto <ville.kautto@hotmail.fi>
- * @version     2020.04.22
- * @since       2020.03.24
- */
+
 public class HighScoreActivity extends AppCompatActivity {
 
     @Override
@@ -82,7 +77,8 @@ public class HighScoreActivity extends AppCompatActivity {
         }
     }
     /**
-     * Loads data from High score database upon clicking buttons
+     * Lê Tuấn Cảnh
+     * sử dụng switch case lựa chọn thành tích của các mức độ, tải lên dữ liệu
      * @param v Clicked View
      */
     public void clicked(View v) {

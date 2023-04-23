@@ -14,12 +14,7 @@ import fi.tuni.minesweeper.model.Game;
 import fi.tuni.minesweeper.model.MyBinder;
 import fi.tuni.minesweeper.model.SoundPlayer;
 
-/**
- * LevelSelection -activity contains difficulty selection and launches the game activity
- * @author      Ville Kautto <ville.kautto@hotmail.fi>
- * @version     2020.04.22
- * @since       2020.04.07
- */
+
 public class LevelSelectionActivity extends AppCompatActivity {
 
     private ServiceConnection connectService;

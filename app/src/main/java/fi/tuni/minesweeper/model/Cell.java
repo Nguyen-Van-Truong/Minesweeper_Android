@@ -9,12 +9,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import fi.tuni.minesweeper.R;
 
-/**
- * Cell object base used in minesweeper's game -activity
- * @author      Ville Kautto <ville.kautto@hotmail.fi>
- * @version     2020.04.22
- * @since       2020.03.24
- */
+
 public class Cell extends AppCompatButton{
     private boolean revealed;           // is the cell revealed
     private boolean isMine;             // does the cell contain a mine
@@ -90,8 +85,7 @@ public class Cell extends AppCompatButton{
     }
 
     /**
-     * Changes the state of the cell from enabled to disabled
-     * if status is true, the cell will be disabled
+     *
      * @param status sets the state of the cell
      */
     public void setCellDisabled(boolean status) {
