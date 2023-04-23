@@ -1,0 +1,35 @@
+<resources>
+    <!-- Main menu selection screen strings -->
+    <string name="app_name">Minesweeper</string>
+    <string name="title_play">Bắt đầu</string>
+    <string name="title_high_scores">Thành tích</string>
+    <string name="title_settings">Cài đặt</string>
+    <string name="title_exit">Thoát</string>
+
+    <!-- Level selection screen strings -->
+    <string name="title_level_selection">Chọn cấp độ</string>
+    <string name="difficulty_easy">Dễ</string>
+    <string name="difficulty_medium">Trung bình</string>
+    <string name="difficulty_hard">Khó</string>
+    <string name="difficulty_extreme">Siêu khó</string>
+    <string name="difficulty_custom">Tùy chỉnh</string>
+
+    <!-- Custom game screen strings -->
+    <string name="title_custom">Tùy chỉnh trò chơi</string>
+    <string name="custom_subtitle">Điền vào tùy chỉnh theo ý</string>
+    <string name="custom_board">Kích thước Board (3-30)</string>
+    <string name="custom_mines">Số lượng mìn (1-360)</string>
+    <string name="custom_high_score_info">Lưu ý: Trò chơi tùy chỉnh không được ghi vào thành tích</string>
+    <string name="custom_button_start">Bắt đầu tùy chỉnh</string>
+
+    <!-- Game screen strings -->
+    <string name="mines"></string>
+    <string name="timer"></string>
+
+    <!-- Settings screen strings -->
+    <string name="settings_sound">Âm thanh</string>
+    <string name="settings_vibration">Rung</string>
+    <string name="settings_debug">Debug</string>
+    <string name="button_reset_data">Đặt lại điểm</string>
+
+</resources>

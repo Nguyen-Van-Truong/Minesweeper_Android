@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/board"
+    android:orientation="vertical"
+    tools:context=".model.Game">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_marginTop="10dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
+            android:stretchColumns="*">
+
+            <ImageView
+                android:id="@+id/flag_icon"
+                android:layout_width="16dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:layout_marginRight="-150dp"
+                android:src="@drawable/flag_icon" />
+
+            <TextView
+                android:id="@+id/mineCounter"
+                style="@style/CommonText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:text="@string/mines"
+                android:textSize="20dp" />
+
+            <ImageButton
+                android:id="@+id/restart"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/game_state_normal"
+                android:gravity="center"
+                android:onClick="newGame"
+                android:padding="20dp" />
+
+            <TextView
+                android:id="@+id/timer"
+                style="@style/CommonText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/timer"
+                android:textSize="20dp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableLayout
+                android:id="@+id/gameBoard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:stretchColumns="*"></TableLayout>
+
+        </ScrollView>
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/infoBox"
+        style="@style/CommonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:text=""
+        android:textSize="15dp" />
+
+</LinearLayout>

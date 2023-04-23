@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8CB87"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="354dp"
+        android:layout_height="122dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/title"
+        android:gravity="center"
+        android:onClick="titleClick" />
+
+    <Button
+        android:id="@+id/playButton"
+        style="@style/CommonButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="clicked"
+        android:text="Bắt đầu"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/highScoreButton"
+        style="@style/CommonButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:onClick="clicked"
+        android:text="@string/title_high_scores"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/settingsButton"
+        style="@style/CommonButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:onClick="clicked"
+        android:text="@string/title_settings"
+        android:textSize="16sp" />
+    <Button
+        android:id="@+id/exitsButton"
+        style="@style/CommonButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:onClick="clicked"
+        android:text="@string/title_exit"
+        android:textSize="16sp" />
+</LinearLayout>
