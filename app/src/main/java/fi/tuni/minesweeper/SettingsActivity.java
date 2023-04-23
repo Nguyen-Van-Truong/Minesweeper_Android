@@ -44,9 +44,6 @@ public class SettingsActivity extends AppCompatActivity {
     private Switch soundSwitch;
     private boolean vibrationStatus;
     private Switch vibrationSwitch;
-    private boolean debugStatus;
-    private Switch debugSwitch;
-    private int debugTrigger = 20;
 
     @Override
     protected void onStart() {
@@ -58,7 +55,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         soundStatus = settings.getBoolean("sound", true);
         vibrationStatus = settings.getBoolean("vibration", true);
-        debugStatus = settings.getBoolean("debug", false);
 
         soundSwitch = findViewById(R.id.soundsStatus);
         vibrationSwitch = findViewById(R.id.vibrationStatus);
@@ -74,10 +70,8 @@ public class SettingsActivity extends AppCompatActivity {
         editor = settings.edit();
         editor.putBoolean("sound", soundStatus);
         editor.putBoolean("vibration", vibrationStatus);
-        editor.putBoolean("debug", debugStatus);
         editor.commit();
 
-        System.out.println("sound:" + soundStatus + ", vibration:" + vibrationStatus + ", debug" + debugStatus);
         toaster("Cài đặt lưu thành công.");
         super.onPause();
     }
