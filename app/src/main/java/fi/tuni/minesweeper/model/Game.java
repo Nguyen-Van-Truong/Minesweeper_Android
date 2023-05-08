@@ -207,42 +207,49 @@ public class Game extends AppCompatActivity {
                         }
                     }
                 });
-
-                // LongClickListener is used for changing markers on the cells
+                // Nguyễn Trung Kiên : chức năng nhấn giữ ô đó thì đặt cờ
+                // 2. Hệ thống nhận sự kiện nhấn giữ
                 board[i][j].setOnLongClickListener(new View.OnLongClickListener() {
                     public boolean onLongClick(View view) {
-
-                        // if clicked cell is enabled or flagged
+                        // 2.Hệ thống kiểm tra xem ô đó đã được bật chưa.
+                        // Nếu chưa, chuyển đến bước 3
                         if(tempBoard[currentRow][currentCol].isClickable() ||
                                 tempBoard[currentRow][currentCol].isFlagged()) {
-
-                            // for long clicks set:
-                            // 1. empty cells to flagged
-                            // 2. flagged to question mark
-                            // 3. question mark to blank
-
-                            // case 1. set blank block to flagged
+                           // 3 .Hệ thống kiểm tra ô đó chưa được đánh dấu cờ và chưa là dấu chấm hỏi
                             if (!tempBoard[currentRow][currentCol].isFlagged() &&
                                     !tempBoard[currentRow][currentCol].isQuestionMarked()) {
+                               //4. Hệ thống kiểm tra xem số lượng cờ đã đánh dấu có nhỏ hơn số mìn hay không.
                                 if(minesFlagged < mines) {
+                                    //5. Dánh dấu ô đó là ô có cờ
                                     tempBoard[currentRow][currentCol].setFlagged(true);
+                                    //5.tăng số cờ đánh dấu lên 1
                                     minesFlagged++;
+                                    //5. cập nhật lại số cờ trên giao diện
                                     updateMineCountDisplay();
                                     vibrate();
                                 }
                             }
-                            // case 2. set flagged to question mark
+                            //Alternative Flow
+                            // 1. Nếu ô đó đã được đánh dấu cờ,
                             else if (tempBoard[currentRow][currentCol].isFlagged()) {
+                                //1.đánh dấu ô đó là ô đánh dấu dấu chấm hỏi
                                 tempBoard[currentRow][currentCol].setQuestionMarked(true);
+                               //1. giảm số cờ đánh dấu đi 1
                                 minesFlagged--;
+                                //1.cập nhật lại hiển thị số cờ đã đánh dấu.
                                 updateMineCountDisplay();
                             }
-                            // case 3. change to blank square
+                           // 2.Nếu ô đó đã được đánh dấu dấu chấm hỏi
                             else {
-                                tempBoard[currentRow][currentCol].setClickable(true);
+                                //2.đặt lại ô đó thành ô trống bình thường
                                 tempBoard[currentRow][currentCol].clearAllIcons();
+                                //2.cho phép người chơi bật ô
+                                tempBoard[currentRow][currentCol].setClickable(true);
+                                //2.cập nhật lại số cờ
+                                updateMineCountDisplay();
                             }
-                            updateMineCountDisplay(); // update mine display
+                            // cập nhật lại số cờ
+                            updateMineCountDisplay();
                         }
                         return true;
 
@@ -254,7 +261,14 @@ public class Game extends AppCompatActivity {
         System.out.println("Board generated");
         return board;
     }
-
+    // hàm cập nhật lại số cờ
+    private void updateMineCountDisplay() {
+        // số cờ bằng số tổng số cờ trừ cho số cờ đã đặt
+        int minesDisplayed = mines - minesFlagged;
+        // cập nhật lại hiển thị ra activity_game.xml
+        TextView tv = findViewById(R.id.mineCounter);
+        tv.setText("" + '\n' + minesDisplayed);
+    }
     /**
      * SetMines sets mines to random locations in the board
      * This is not really efficient. Too bad.
@@ -271,6 +285,7 @@ public class Game extends AppCompatActivity {
                 i++;
             }
         }
+
         updateMineCountDisplay();
         System.out.println("Mines Set");
     }
@@ -402,11 +417,8 @@ public class Game extends AppCompatActivity {
      * Updates mine count to the screen after flags are placed
      * mineCount = mines - flagsPlaced
      */
-    private void updateMineCountDisplay() {
-        int minesDisplayed = mines - minesFlagged;
-        TextView tv = findViewById(R.id.mineCounter);
-        tv.setText("" + '\n' + minesDisplayed);
-    }
+    // Nguyễn Trung Kiên : hàm cập nhật số  lại cờ
+
 
     /**
      * RevealMines reveals all the mines on the board after the game has ended

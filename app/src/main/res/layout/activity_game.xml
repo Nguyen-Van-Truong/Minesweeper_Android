@@ -74,7 +74,9 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
+<!--            Nguyễn Trung Kiên -->
+<!--  1. Người chơi nhấn và giữ trên một ô trên bàn cờ-->
+<!--            Bàn cờ-->
             <TableLayout
                 android:id="@+id/gameBoard"
                 android:layout_width="match_parent"

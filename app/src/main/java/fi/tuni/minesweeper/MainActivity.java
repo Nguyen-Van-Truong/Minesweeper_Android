@@ -79,10 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Clicked handles button click events from main menu. Also opens a new activity upon clicking
-     * @param v Clicked View
-     */
+
     public void clicked(View v) {
         Intent intent;
         playSound(R.raw.click);
