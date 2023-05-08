@@ -35,11 +35,7 @@ public class Game extends AppCompatActivity {
     private int mines;
     private String difficulty;
 
-    /**
-     * onCreate takes parameters from LevelSelectionActivity and CustomGameActivity
-     * the parameters store game creation related data (rows, cols, mines and difficulty)
-     * @param savedInstanceState stored parameters from another activities
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,10 +64,6 @@ public class Game extends AppCompatActivity {
     private static final String SETTINGS = "UserSettings";
     private boolean vibrationStatus;
 
-    /**
-     * OnStart binds and starts the AudioService.
-     * Also creates an instance of scoreDatabase for storing scores to High Scores
-     */
     @Override
     protected void onStart() {
         super.onStart();
@@ -98,9 +90,6 @@ public class Game extends AppCompatActivity {
     private int timer = 0;
     private boolean timerStarted = false;
 
-    /**
-     * NewGame generates a new game for the first game of the session
-     */
     public void newGame() {
         gameState = RUNNING;
         resetStats();
@@ -113,13 +102,9 @@ public class Game extends AppCompatActivity {
         tv.setText("Clear the field without triggering the mines");
     }
 
-    /**
-     * this newGame accepts calls from a button in-game screen
-     * it resets the current progress and starts a new game upon activating
-     * @param v ImageButton's view
-     */
+
     public void newGame(View v) {
-        // resetting previous stats
+
         resetStats();
 
         TableLayout tl = findViewById(R.id.gameBoard);
@@ -136,9 +121,6 @@ public class Game extends AppCompatActivity {
         setScene();
     }
 
-    /**
-     * Incidentally resetStats resets all the game related stats on starting a new game
-     */
     private void resetStats() {
         vibrate();
         TextView infobox = findViewById(R.id.infoBox);
@@ -150,15 +132,11 @@ public class Game extends AppCompatActivity {
         timer = 0;
         timerStarted = false;
         TextView time = findViewById(R.id.timer);
-        time.setText(String.format("%03d", timer)); // Display the timer with 3 digits
+        time.setText(String.format("%03d", timer));
     }
 
     private int minesFlagged = 0;
 
-    /**
-     * GenerateBoard generates the board and sets all the actions for different button inputs
-     * @return after all is set returns the board
-     */
     public Cell[][] generateBoard() {
         Cell[][] board = new Cell[cols][rows];
         for(int i = 0; i<rows; i++) {
@@ -170,13 +148,8 @@ public class Game extends AppCompatActivity {
                 final int currentRow = i;
                 final int currentCol = j;
 
-                // Prepare yourself mentally, this is going to be a long one
-                // Regular click opens cells that are clickable
                 board[i][j].setOnClickListener(new View.OnClickListener() {
                     public void onClick(View view) {
-
-                        // check if current block is flagged
-                        // if flagged the don't do anything
                         if(tempBoard[currentRow][currentCol].isClickable()) {
                             if (soundBound) {
                                 SoundPlayer.playSound(R.raw.click);
@@ -187,14 +160,14 @@ public class Game extends AppCompatActivity {
                                 timerStarted = true;
                             }
 
-                            // Mine check on clicked cell that is not flagged
+
                             if(tempBoard[currentRow][currentCol].hasMine()) {
                                 gameState = LOSE;
                                 tempBoard[currentRow][currentCol].triggerMine();
                                 gameResolve();
                             }
 
-                            // Checking for win condition
+
                             if(gameWinCheck()) {
                                 gameState = WIN;
                                 gameResolve();
@@ -264,10 +237,7 @@ public class Game extends AppCompatActivity {
         TextView tv = findViewById(R.id.mineCounter);
         tv.setText("" + '\n' + minesDisplayed);
     }
-    /**
-     * SetMines sets mines to random locations in the board
-     * This is not really efficient. Too bad.
-     */
+
     public void setMines() {
         System.out.println("Adding mines");
         int i = 0;
@@ -285,18 +255,9 @@ public class Game extends AppCompatActivity {
         System.out.println("Mines Set");
     }
 
-    /**
-     * UncoverCell calls to the cells and reveals all related cells (wip)
-     * @param row
-     * @param col
-     */
     private void uncoverCell(int row, int col) {
-        // only open non-flagged and mineless cells
         if(board[row][col].isClickable() && !board[row][col].isFlagged()) {
-            // assign a number to clicked cell
             setNumber(row, col);
-
-            // reveal clicked cell
             System.out.println("Revealed cell at: " + row + " " + col);
             board[row][col].setRevealed();
             if(board[row][col].getMineCount() == 0) {
@@ -305,9 +266,7 @@ public class Game extends AppCompatActivity {
         }
     }
 
-    /**
-     * Scene adds all generated buttons to the game board that is visible to the user
-     */
+
     public void setScene() {
         System.out.println("Adding cells");
         TableLayout tl = findViewById(R.id.gameBoard);
@@ -322,11 +281,7 @@ public class Game extends AppCompatActivity {
         System.out.println("Cells added");
     }
 
-    /**
-     * gameWinCheck goes through the entire board and scans it for
-     * cells that are mineless and not revealed
-     * @return returns false, unless the player wins the game
-     */
+
     private boolean gameWinCheck() {
         for(int i = 0;i<board.length;i++) {
             for(int j = 0; j<board[i].length;j++) {
@@ -339,12 +294,6 @@ public class Game extends AppCompatActivity {
         return true;
     }
 
-    /**
-     * SetNumbers assigns numbers on cells based on adjacent cells' mines
-     * goes trough each mineless cell and adds a number for each nearby mine
-     * @param currentRow Current row location on the board
-     * @param currentCol Current column loaction on the board
-     */
     private void setNumber(int currentRow, int currentCol) {
         //if the cell is not mine, assign a number
         int surroundingMines = 0;
@@ -366,11 +315,7 @@ public class Game extends AppCompatActivity {
         }
     }
 
-    /**
-     * uncoverNearbyCells checks nearby cells and keeps revealing them until there are mines or flags
-     * @param currentRow
-     * @param currentCol
-     */
+
     private void uncoverNearbyCells(int currentRow, int currentCol) {
         if(!board[currentRow][currentCol].hasMine()) {
 
@@ -390,12 +335,6 @@ public class Game extends AppCompatActivity {
         }
     }
 
-    /**
-     * InsideBounds checks if suggested row and column is inside the board
-     * @param newRow Suggested row position
-     * @param newCol Suggested column position
-     * @return is the suggested position inside array bounds
-     */
     private boolean insideBounds(int newRow, int newCol) {
         if(rows > newRow  && newRow >= 0) {
             if(cols > newCol && newCol  >= 0) {
@@ -408,16 +347,7 @@ public class Game extends AppCompatActivity {
         }
     }
 
-    /**
-     * Updates mine count to the screen after flags are placed
-     * mineCount = mines - flagsPlaced
-     */
     // Nguyễn Trung Kiên : hàm cập nhật số  lại cờ
-
-
-    /**
-     * RevealMines reveals all the mines on the board after the game has ended
-     */
     private void revealMines() {
         for(int i = 0;i<board.length;i++) {
             for(int j = 0; j<board[i].length;j++) {
@@ -433,30 +363,20 @@ public class Game extends AppCompatActivity {
     }
 
 
-    /**
-     * playSound creates a local broadcast to audioManager which plays a given sound
-     * Please note, that this is currently just a temporary solution, that will be changed soon
-     * @param audioId
-     */
     private void playSound(int audioId) {
         if(soundBound) {
             soundService.playSound(audioId);
         }
     }
 
-    /**
-     * vibrate checks the vibration status and vibrates the device accordingly
-     */
+
     private void vibrate() {
         if(vibrationStatus) {
             v.vibrate(100);
         }
     }
 
-    /**
-     * gameResolve is called when the game is over
-     * It displays a different message depending on gameState
-     */
+
     private void gameResolve() {
         TextView tv = findViewById(R.id.infoBox);
         tv.setText("Restart by clicking the circular image on the top");
@@ -482,10 +402,6 @@ public class Game extends AppCompatActivity {
         }
     }
 
-    /**
-     * StarTimer starts a timer service upon clicking the first cell
-     * Also updates the tutorial text on the first click
-     */
     private void startTimer() {
         TextView infobox = findViewById(R.id.infoBox);
         infobox.setText("The numbers describe how many mines are nearby");
@@ -494,9 +410,6 @@ public class Game extends AppCompatActivity {
         startService(intent);
     }
 
-    /**
-     * StopTimer stops a timer service upon game completion
-     */
     private void stopTimer() {
         Intent i = new Intent();
         i.setAction("STOP");
@@ -504,22 +417,18 @@ public class Game extends AppCompatActivity {
         LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(i);
     }
 
-    /**
-     * BroadcastReceiver listens for messages from other services, currently used only for timer
-     * Updates the UI's timer and counts up to 999
-     */
+
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            // This is used when the player hits the mine on the first try
+
             if(gameState != RUNNING) {
                 stopTimer();
             }
             TextView tv = (TextView) findViewById(R.id.timer);
             TextView infobox = findViewById(R.id.infoBox);
             timer = intent.getIntExtra("time", 0);
-            tv.setText(String.format("%03d", timer)); // Display the timer with 3 digits
-            // this method also updates the tutorial text in the easier difficulties
+            tv.setText(String.format("%03d", timer));
             if(timer >= 20 && timer < 40) {
                 infobox.setText("Hold to place down flags that cannot be dug accidentally");
             } else if(timer >= 40 && timer < 60) {
@@ -529,9 +438,6 @@ public class Game extends AppCompatActivity {
         }
     };
 
-    /**
-     * OnResume handles incoming requests from Timer
-     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -539,23 +445,17 @@ public class Game extends AppCompatActivity {
 
     }
 
-    /**
-     * Toaster creates toasts and displays them visually to user
-     * @param message Displayed message
-     */
+
     public void toaster(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
-    /**
-     * MyConnection maintains the connetion between SoundPlayer and this activity
-     */
     class MyConnection implements ServiceConnection {
 
         @Override
         public void onServiceConnected(ComponentName className,
                                        IBinder service) {
-            // Assigns a binder and the binder has an assigned SoundPlayer
+
             System.out.println("Fetching soundService from binder");
             MyBinder binder = (MyBinder) service;
             soundService = binder.getSoundPlayer();
