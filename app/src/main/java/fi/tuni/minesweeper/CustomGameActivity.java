@@ -16,12 +16,7 @@ import fi.tuni.minesweeper.model.Game;
 import fi.tuni.minesweeper.model.MyBinder;
 import fi.tuni.minesweeper.model.SoundPlayer;
 
-/**
- * CustomGameActivity uses user given variables for custom game generation
- *  @author Ville Kautto <ville.kautto@hotmail.fi>
- *  @version 2020.04.22
- *  @since 2020.04.07
- */
+
 public class CustomGameActivity extends AppCompatActivity {
 
     @Override

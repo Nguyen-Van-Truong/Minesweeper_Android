@@ -12,7 +12,6 @@
         android:layout_marginTop="25dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:onClick="enableDebug"
         android:padding="10dp"
         android:text="@string/title_settings"
         android:textSize="25sp" />
@@ -48,34 +47,6 @@
             android:onClick="clicked"
             android:padding="10dp"
             android:text="@string/settings_vibration" />
-
-        <Switch
-            android:id="@+id/debugStatus"
-            style="@style/CommonSettings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="10dp"
-            android:onClick="clicked"
-            android:padding="10dp"
-            android:text="@string/settings_debug"
-            android:visibility="invisible" />
-
-        <Button
-            android:id="@+id/clearDatabase"
-            style="@style/CommonText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:background="#FF0505"
-            android:onClick="deleteScoreData"
-            android:padding="10dp"
-            android:text="@string/button_reset_data" />
-
     </LinearLayout>
 
 </LinearLayout>

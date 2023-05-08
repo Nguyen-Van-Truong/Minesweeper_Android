@@ -8,12 +8,7 @@ import java.util.List;
 
 import fi.tuni.minesweeper.model.Score;
 
-/**
- * Scoredao Sends queries to database and reruns requested Score Objects
- * @author Ville Kautto <ville.kautto@hotmail.fi>
- * @version 2020.04.22
- * @since 2020.04.22
- */
+
 @Dao
 public interface ScoreDao {
     /**
@@ -36,12 +31,7 @@ public interface ScoreDao {
     @Query("DELETE FROM scores")
     void deleteAll();
 
-    /**
-     * Gets all the entries in the database
-     * @return All the Scores
-     */
-    @Query("SELECT * FROM scores ORDER BY score ASC LIMIT 10")
-    List<Score> getAllScores();
+
 
     /**
      * Fetches top 10 scores with easy difficulty

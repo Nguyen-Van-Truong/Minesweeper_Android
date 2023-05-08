@@ -7,12 +7,7 @@ import androidx.room.PrimaryKey;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Database's Score object, used in saving scores to database
- * @author Ville Kautto <ville.kautto@hotmail.fi>
- * @version 2020.04.22
- * @since 2020.04.22
- */
+
 @Entity(tableName = "scores")
 public class Score {
     // automatically incremented primary key
